@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Black+Ops+One|Indie+Flower|Rock+Salt|Share+Tech+Mono&display=swap" rel="stylesheet">
+
     <!-- Stylesheets -->
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
@@ -15,8 +18,8 @@
 <body>
     <div class="pagecontainer">
         <div class="row titleback">
-                <div class="col-md-12 title">
-                    <h1>Run the Gunz</h1>
+                <div class="col-md-12">
+                    <h1 class="title">Run the Gunz</h1>
                 </div>
         </div>
 
@@ -30,25 +33,35 @@
                         class="photo"
                       />
                 </div>
-                <div class="col-md-6 copstats">
-                    <h1>Bribe required: $<span id="number-to-reach"></span></h1>
+                <div class="col-md-3 copstats">
+                    <h1>Bribe required: $<span id="number-to-reach"></span>,000</h1>
                     <h3>Successful runs:  <span id="wins"></span></h1>
-                    <h3>Busted runs:  <span id="loss"></span></h1>
+                    <h3>Busted runs:  <span id="loss"></span></h1>                      
                 </div>
+                <div class="col-md-3 copstats">
+                <img
+                        src="./assets/images/coppatrol.gif"
+                        alt="photo"
+                        width="400"
+                        height="220"
+                        class="photo"
+                      />
+                   
+                    </div>
                
         </div>
 
         <div class="row gunzback">
                 <div class="col-md-6 gunz">
                         <div class="row gunrow">
-                        <div id="gun1" class="col-md-3"></div>
-                        <div id="gun2" class="col-md-3"></div>
-                        <div id="gun3" class="col-md-3"></div>
-                        <div id="gun4" class="col-md-3"></div>
+                        <div id="gun1" class="col-md-3 gunbox"></div>
+                        <div id="gun2" class="col-md-3 gunbox"></div>
+                        <div id="gun3" class="col-md-3 gunbox"></div>
+                        <div id="gun4" class="col-md-3 gunbox"></div>
                     </div>
                 </div>
                 <div class="col-md-6 profitback">
-                        <h1>Profit: $ <span id="profit"></span></h1>
+                        <h1>Profit: $ <span id="profit"></span>,000</h1>
                 </div>
                 
                 

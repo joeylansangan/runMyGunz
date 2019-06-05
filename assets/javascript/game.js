@@ -35,10 +35,17 @@ for (let i = 0; i < itemPrice.length; i++){
 
 }
 
+// create win/loss counter and show initial value on screen
 var win = 0
 $("#wins").append(win);
 var loss = 0
 $("#loss").append(loss);
+
+// create game over function
+function resetStats(){
+    profit = 0;
+    targetNumber = 0;
+}
 
 // set on click event for each item
 $(".item-image").on("click", function(){
@@ -63,12 +70,17 @@ $(".item-image").on("click", function(){
     if (profit === targetNumber){
         alert("You Win!");
         win++;
-        $("#wins").html(win);
+        $("#wins").html(win)
+        resetStats();
+        
+       
     }
     else if (profit >= targetNumber){
         alert("You Lose!"); 
         loss++;
         $("#loss").html(loss);
+        resetStats();
+        
         
     }
   
