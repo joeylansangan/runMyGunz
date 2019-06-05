@@ -12,26 +12,29 @@ $("#profit").append(profit);
 
 // // set value to each item
 var randomPrice = Math.floor(Math.random() * (12 - 1 + 1)) + 1;
+var randomPrice2 = Math.floor(Math.random() * (12 - 1 + 1)) + 1;
+var randomPrice3 = Math.floor(Math.random() * (12 - 1 + 1)) + 1;
+var randomPrice4 = Math.floor(Math.random() * (12 - 1 + 1)) + 1;
 
-var itemPrice = [randomPrice];
+var itemPrice = [randomPrice, randomPrice2, randomPrice3, randomPrice4];
 
 for (let i = 0; i < itemPrice.length; i++){
     
     // make image for itemOne
     var itemOne = $("<img>");
-
     // add class for each item
     itemOne.addClass("item-image");
-
     // add image attribute on on the item
-    itemOne.attr("src", "https://www.pixilart.com/images/art/6267c88fe2cd581.png?v=1501586294");
+    // template literals was used here
+    itemOne.attr("src", `./assets/images/${i}.png`);
     // add random item value
     itemOne.attr("data-itemvalue", itemPrice[i]);
-
     // print image with its random value on screen
-    $("#guns").append(itemOne);
-    
+    $(`#gun${i+1}`).html(itemOne);
+    console.log(`random price ${i+1}: ${itemPrice[i]}`)
+
 }
+
 
 // set on click event for each item
 $(".item-image").on("click", function(){
@@ -41,16 +44,22 @@ $(".item-image").on("click", function(){
 
     // itemValue will return a string value, parseInt will convert this string value to integer
     itemValue = parseInt(itemValue);
-
+   
     // add itemValue to profit everyclick
     // can also be typed as profit += itemValue
-    // profit = profit + itemValue
-    
+    profit = profit + itemValue
+
+    // update profit on screen for every click
+    $("#profit").text(profit);
+
+    // if statement for win/lose
+
+    if (profit === targetNumber){
+        alert("You Win!");
+    }
+    else if (profit >= targetNumber){
+        alert("You Lose!"); 
+        
+    }
+  
 })
-
-// show items to its own div
-
-
-// add score depending on the value of item clicked
-// add if statement for win/lose
-
