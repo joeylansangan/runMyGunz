@@ -32,9 +32,9 @@ body {
 }
 .statsback {
   position: absolute;
-  margin: 0;
+  margin: 340px 0px 20px 0px;
   width: 100%;
-  top: 340px;
+  
 }
 .copstats {
   /* font-family: "Indie Flower", cursive; */
@@ -42,25 +42,24 @@ body {
   color: black;
   background-color: rgba(250, 250, 250, 0.4);
 }
-.mercs {
-}
+
 .gunzback {
+  padding-top: 20px;
   position: absolute;
   margin: 0;
   width: 100%;
   bottom: 0px;
+  background-color: rgba(251, 255, 6, 0.24);
 }
 .gunbox:hover{
     width: 200%;
     height: 200%;
-    box-shadow: 0 12px 16px 0 rgba(255, 6, 151, 0.24), 0 17px 50px 0 rgba(255, 3, 158, 0.19);
+    box-shadow: 0 12px 16px 0 rgba(6, 255, 6, 0.24);
   }
-/* .gunbox {
-    background-color: rgba(250, 0, 0, 0.4);
-} */
+
 .profitback {
   /* font-family: "Indie Flower", cursive; */
   font-family: 'Share Tech Mono', monospace;
-  color: black;
-  background-color: rgba(250, 250, 250, 0.4);
+  color: gainsboro;
+  /* background-color: rgba(250, 250, 250, 0.4); */
 }

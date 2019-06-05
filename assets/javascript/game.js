@@ -1,3 +1,5 @@
+
+
 // Set target number randomly from 19 - 120
 var targetNumber = Math.floor(Math.random() * (120 - 19 + 1)) + 19;
 
@@ -17,6 +19,9 @@ var randomPrice3 = Math.floor(Math.random() * (12 - 1 + 1)) + 1;
 var randomPrice4 = Math.floor(Math.random() * (12 - 1 + 1)) + 1;
 
 var itemPrice = [randomPrice, randomPrice2, randomPrice3, randomPrice4];
+console.log(itemPrice);
+
+function displayGuns() {
 
 for (let i = 0; i < itemPrice.length; i++){
     
@@ -34,24 +39,47 @@ for (let i = 0; i < itemPrice.length; i++){
     console.log(`random price ${i+1}: ${itemPrice[i]}`)
 
 }
+}
+displayGuns();
 
 // create win/loss counter and show initial value on screen
 var win = 0
 $("#wins").append(win);
 var loss = 0
-$("#loss").append(loss);
+$("#loss").append(loss); 
 
-// create game over function
 function resetStats(){
-    profit = 0;
-    targetNumber = 0;
+    // reset targetNumber
+    targetNumber = Math.floor(Math.random() * (120 - 19 + 1)) + 19;
+    // display new targetNumber
+    $("#number-to-reach").html(targetNumber);
+
+    // reset and show profit
+    profit = 0
+    $("#profit").html(profit);
+
+    // get 4 new values for each gun
+ randomPrice = Math.floor(Math.random() * (12 - 1 + 1)) + 1;
+ randomPrice2 = Math.floor(Math.random() * (12 - 1 + 1)) + 1;
+ randomPrice3 = Math.floor(Math.random() * (12 - 1 + 1)) + 1;
+ randomPrice4 = Math.floor(Math.random() * (12 - 1 + 1)) + 1;
+
+ itemPrice = [randomPrice, randomPrice2, randomPrice3, randomPrice4];
+
+ displayGuns();
+ 
+
+ console.log(itemPrice);
+
 }
 
+var itemValue;
 // set on click event for each item
-$(".item-image").on("click", function(){
-
+$(document).on("click", ".item-image", function(){
+    // sound effect
+    $('audio#money')[0].play();
     // create variable that has a value of the item price which is under the data-itemvalue attribute
-    var itemValue = ($(this).attr("data-itemvalue"));
+    itemValue = ($(this).attr("data-itemvalue"));
 
     // itemValue will return a string value, parseInt will convert this string value to integer
     itemValue = parseInt(itemValue);
@@ -70,8 +98,9 @@ $(".item-image").on("click", function(){
     if (profit === targetNumber){
         alert("You Win!");
         win++;
-        $("#wins").html(win)
+        $("#wins").html(win);
         resetStats();
+        
         
        
     }
@@ -80,6 +109,7 @@ $(".item-image").on("click", function(){
         loss++;
         $("#loss").html(loss);
         resetStats();
+       
         
         
     }
