@@ -4,7 +4,30 @@ height: 100px;
 }
 
 .pagecontainer {
-    
+    background: grey;
     position: relative;
     min-height: 100vh;
   }
+
+.title{
+    background: green;
+    
+   
+    height: 100px;
+    
+}
+.stats{
+    background: red;
+    
+   
+    height: 100px;
+    
+}
+.gunzback{
+    background: blue;
+    position: absolute;
+    bottom: 0px;
+    
+    height: 100px;
+    
+}
