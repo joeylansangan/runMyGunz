@@ -1,33 +1,61 @@
-.item-image{
-width: 100px;
-height: 100px;
+html,
+body {
+  background-image: url(../images/mercbasement.jpg);
+  background-color: black;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+}
+
+.item-image {
+  width: 100px;
+  height: 100px;
 }
 
 .pagecontainer {
-    background: grey;
-    position: relative;
-    min-height: 100vh;
-  }
 
-.title{
-    background: green;
-    
-   
-    height: 100px;
-    
+  position: relative;
+  min-height: 100vh;
+  
+  
 }
-.stats{
-    background: red;
-    
-   
-    height: 100px;
-    
-}
-.gunzback{
+.titleback {
     background: blue;
     position: absolute;
-    bottom: 0px;
+    width: 100%;
+    margin: 0;
+    top: 0px;
+ 
+  }
+.title {
+  background: green;
+
+  text-align: center;
+  height: 100px;
+}
+.statsback {
+    background: blue;
+    position: absolute;
+    margin: 0;
+    width: 100%;
+    top: 200px;
     
-    height: 100px;
-    
+  }
+.copstats {
+  background: red;
+}
+.mercs {
+  background: goldenrod;
+}
+.gunzback {
+  background: blue;
+  position: absolute;
+  margin: 0;
+  width: 100%;
+  bottom: 0px;
+}
+.gunz {
+  background: red;
 }

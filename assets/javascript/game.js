@@ -24,7 +24,7 @@ for (let i = 0; i < itemPrice.length; i++){
     var itemOne = $("<img>");
     // add class for each item
     itemOne.addClass("item-image");
-    // add image attribute on on the item
+    // add image attribute on the item
     // template literals was used here
     itemOne.attr("src", `./assets/images/${i}.png`);
     // add random item value
@@ -35,6 +35,10 @@ for (let i = 0; i < itemPrice.length; i++){
 
 }
 
+var win = 0
+$("#wins").append(win);
+var loss = 0
+$("#loss").append(loss);
 
 // set on click event for each item
 $(".item-image").on("click", function(){
@@ -53,12 +57,18 @@ $(".item-image").on("click", function(){
     $("#profit").text(profit);
 
     // if statement for win/lose
+    // create a win/lose count variable and show on screen
+
 
     if (profit === targetNumber){
         alert("You Win!");
+        win++;
+        $("#wins").html(win);
     }
     else if (profit >= targetNumber){
         alert("You Lose!"); 
+        loss++;
+        $("#loss").html(loss);
         
     }
   
