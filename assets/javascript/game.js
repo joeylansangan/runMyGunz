@@ -71,8 +71,16 @@ function resetStats(){
     console.log(itemPrice);
 
 }
-
+// call function to display guns
 displayGuns();
+
+// create function that will replace cop image when user gets busted
+// function bustedImage() {
+//     $(".copstats").html("<img src=`./assets/images/copcar.gif` width='400px'>");
+//   }
+
+
+
 
 // set on click event for each item
 // dynamic button clicking syntax is used here
@@ -104,6 +112,13 @@ $(document).on("click", ".item-image", function(){
         loss++;
         $("#loss").html(loss);
         resetStats();
+        function displayBust(){
+            var bustedImage = $("<img>")
+            bustedImage.addClass("copphoto");  
+            bustedImage.attr("src", `./assets/images/copcar.gif`);  
+             $(`.copphoto`).html(bustedImage);
+        }
+        displayBust();
     }
   
 })
