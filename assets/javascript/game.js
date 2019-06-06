@@ -1,19 +1,62 @@
-// Set target number randomly from 19 - 120
+// create start game button and show when page loads
+var pressStart = "START GAME"
+$("#startgame").append(pressStart);
+// try again button if user loses
+var tryAgain = "TRY AGAIN"
+
+function hideElements(){
+    $(".copstats").hide();
+    $(".gunzback").hide();
+    $(".mercs").hide();
+}
+
+function showElements(){
+    $(".copstats").show();
+    $(".gunzback").show();
+    $(".mercs").show();
+}
+
+// hide elements at when page loads
+hideElements();
+
+// create on click event that runs the whole game(rest of code)
+$(document).on("click", "#startgame", function(){
+    $(".instructions").hide();
+    $("#startgame").hide();
+    $(".gunrow").show(); 
+    showElements(); 
+    gameStart();
+    function displayPatrol(){
+        var patrolImage = $("<img>")
+        patrolImage.addClass("copphoto");  
+        patrolImage.attr("src", `./assets/images/coppatrol.gif`);  
+        $(`.copphoto`).html(patrolImage);
+    }
+    displayPatrol();    
+})
+
+// create gameStart function
+function gameStart(){
+
+    // Set target number randomly from 19 - 120
 var targetNumber = Math.floor(Math.random() * (120 - 19 + 1)) + 19;
 // set initial user score to 0
 var profit = 0;
 
 // show target number to its own div
-$("#number-to-reach").append(targetNumber);
+$("#number-to-reach").html(targetNumber);
 
 // show profit to its own div
-$("#profit").append(profit);
+$("#profit").html(profit);
 
 // create win/loss counter and show initial value on screen
 var win = 0
-$("#wins").append(win);
+$("#wins").html(win);
 var loss = 0
-$("#loss").append(loss); 
+$("#loss").html(loss); 
+
+// background music
+// './assets/audio/suspensepixel.wav'
 
 // // set value to each item
 var randomPrice = Math.floor(Math.random() * (12 - 1 + 1)) + 1;
@@ -74,14 +117,6 @@ function resetStats(){
 // call function to display guns
 displayGuns();
 
-// create function that will replace cop image when user gets busted
-// function bustedImage() {
-//     $(".copstats").html("<img src=`./assets/images/copcar.gif` width='400px'>");
-//   }
-
-
-
-
 // set on click event for each item
 // dynamic button clicking syntax is used here
 $(document).on("click", ".item-image", function(){
@@ -116,10 +151,19 @@ $(document).on("click", ".item-image", function(){
             var bustedImage = $("<img>")
             bustedImage.addClass("copphoto");  
             bustedImage.attr("src", `./assets/images/copcar.gif`);  
-             $(`.copphoto`).html(bustedImage);
+            $(`.copphoto`).html(bustedImage);
         }
         displayBust();
+        $(".gunrow").hide();
+        
+        
+       
     }
   
 })
+
+}
+
+
+
 

@@ -20,15 +20,24 @@
         <div class="row titleback">
                 <div class="col-md-12">
                     <h1 class="title">Run My Gunz</h1>
+                    <h3 id="startgame"></h3>
                 </div>
         </div>
-        <div class="row clicktostart">
-            <div class="col-md-5"></div>
-            <div class="col-md-2">
+        <div class="row instructions">
+            <div class="col-md-3"></div>
+            <div class="col-md-6 instructback">
+                <ol>
+                    <li>Press Start Game to Play</li>
+                    <li>The police officer will require a random bribe amount at the start of the game.</li>
+                    <li>Make profit by selling your guns.</li>
+                    <li>You must match your profit with required bribe amount per round to win.</li>
+                    <li>If you make more profit than the bribe amount, jail will be waiting for you</li>
+                    <li>Happy Gun Running!</li>
+                </ol>
                     
             </div>
             
-            <div class="col-md-5"></div>
+            <div class="col-md-3"></div>
         </div>
 
 
@@ -36,18 +45,17 @@
                 <div class="col-md-6 col-sm-6 mercs">
                         <img
                         src="./assets/images/mercs.gif"
-                        alt="photo"
-                        width="400"
+                            width="400"
                         height="200"
                         class="mercphoto"
                       />
                 </div>
-                <div class="col-md-3 col-sm-3 copstats">
+                <div class="col-md-3 col-sm-3 copstats copnumbers">
                     <h1>Bribe required: $<span id="number-to-reach"></span>,000</h1>
                     <h3>Successful runs:  <span id="wins"></span></h1>
                     <h3>Busted runs:  <span id="loss"></span></h1>                      
                 </div>
-                <div class="col-md-3 col-sm-3 copphoto">
+                <div class="col-md-3 col-sm-3 copphoto copstats">
                 <img
                         src="./assets/images/coppatrol.gif"
                         alt="photo"
@@ -72,8 +80,8 @@
                 <div class="col-md-3 profitback">
                         <h1>Profit:$<span id="profit"></span>,000</h1>
                 </div>
-                <div class="col-md-3 startgame">
-                    <h1><span id="startbutton"></span></h1>
+                <div class="col-md-3">
+                   
             </div>
                 
                 
