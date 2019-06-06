@@ -1,9 +1,33 @@
+// Set target number randomly from 19 - 120
+var targetNumber = Math.floor(Math.random() * (120 - 19 + 1)) + 19;
+// set initial user score to 0
+var profit = 0;
+
 // show target number to its own div
 $("#number-to-reach").append(targetNumber);
 
 // show profit to its own div
 $("#profit").append(profit);
 
+// create win/loss counter and show initial value on screen
+var win = 0
+$("#wins").append(win);
+var loss = 0
+$("#loss").append(loss); 
+
+// // set value to each item
+var randomPrice = Math.floor(Math.random() * (12 - 1 + 1)) + 1;
+var randomPrice2 = Math.floor(Math.random() * (12 - 1 + 1)) + 1;
+var randomPrice3 = Math.floor(Math.random() * (12 - 1 + 1)) + 1;
+var randomPrice4 = Math.floor(Math.random() * (12 - 1 + 1)) + 1;
+
+var itemPrice = [randomPrice, randomPrice2, randomPrice3, randomPrice4];
+console.log(itemPrice);
+
+var itemValue;
+
+// create function that will display guns on screen
+// this makes these buttons dynamic?
 function displayGuns() {
 
 for (let i = 0; i < itemPrice.length; i++){
@@ -24,6 +48,7 @@ for (let i = 0; i < itemPrice.length; i++){
 }
 }
 
+// create function that resets the stats
 function resetStats(){
     // reset targetNumber
     targetNumber = Math.floor(Math.random() * (120 - 19 + 1)) + 19;
@@ -50,6 +75,7 @@ function resetStats(){
 displayGuns();
 
 // set on click event for each item
+// dynamic button clicking syntax is used here
 $(document).on("click", ".item-image", function(){
     // sound effect
     $('audio#money')[0].play();
@@ -67,7 +93,6 @@ $(document).on("click", ".item-image", function(){
     $("#profit").text(profit);
 
     // if statement for win/lose
-
     if (profit === targetNumber){
         alert("You Win!");
         win++;
@@ -83,24 +108,3 @@ $(document).on("click", ".item-image", function(){
   
 })
 
-// Set target number randomly from 19 - 120
-var targetNumber = Math.floor(Math.random() * (120 - 19 + 1)) + 19;
-// set initial user score to 0
-var profit = 0;
-
-// // set value to each item
-var randomPrice = Math.floor(Math.random() * (12 - 1 + 1)) + 1;
-var randomPrice2 = Math.floor(Math.random() * (12 - 1 + 1)) + 1;
-var randomPrice3 = Math.floor(Math.random() * (12 - 1 + 1)) + 1;
-var randomPrice4 = Math.floor(Math.random() * (12 - 1 + 1)) + 1;
-
-var itemPrice = [randomPrice, randomPrice2, randomPrice3, randomPrice4];
-console.log(itemPrice);
-
-// create win/loss counter and show initial value on screen
-var win = 0
-$("#wins").append(win);
-var loss = 0
-$("#loss").append(loss); 
-
-var itemValue;
