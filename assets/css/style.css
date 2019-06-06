@@ -39,6 +39,16 @@ body {
 }
 #startgame:hover { transform: scale(1.1); }
 
+#mainmenu {
+  font-size: 250%;
+  text-shadow: 0 0 9px black, 3px 3px 5px rgb(71, 60, 9);
+  color: lightgray;
+  font-family: 'Share Tech Mono', monospace;
+  text-align: center;
+  transition: all .2s ease-in-out;
+}
+#mainmenu:hover { transform: scale(1.1); }
+
 .statsback {
   position: absolute;
   margin: 340px 0px 20px 0px;
@@ -64,9 +74,11 @@ body {
   bottom: 0px;
   background-color: rgba(251, 255, 6, 0.24);
 }
+.gunbox{
+  transition: all .2s ease-in-out;
+}
 .gunbox:hover{
-    width: 200%;
-    height: 200%;
+    transform: scale(1.1);
     box-shadow: 0 12px 16px 0 rgba(6, 255, 6, 0.24);
   }
 

@@ -1,26 +1,34 @@
 // create start game button and show when page loads
 var pressStart = "START GAME"
 $("#startgame").append(pressStart);
-// try again button if user loses
-var tryAgain = "TRY AGAIN"
 
+// create in game menu button
+var clickMenu = "Main Menu"
+$(document).on("click", "#mainmenu", function(){
+    hideElements();
+    $("#startgame").show();
+    $(".instructions").show();
+})
+
+// hide/show elements function
 function hideElements(){
     $(".copstats").hide();
     $(".gunzback").hide();
     $(".mercs").hide();
 }
-
 function showElements(){
     $(".copstats").show();
     $(".gunzback").show();
     $(".mercs").show();
 }
 
-// hide elements at when page loads
+
+// hide elements when page loads
 hideElements();
 
 // create on click event that runs the whole game(rest of code)
 $(document).on("click", "#startgame", function(){
+    $("#mainmenu").html(clickMenu);
     $(".instructions").hide();
     $("#startgame").hide();
     $(".gunrow").show(); 
@@ -155,9 +163,6 @@ $(document).on("click", ".item-image", function(){
         }
         displayBust();
         $(".gunrow").hide();
-        
-        
-       
     }
   
 })
