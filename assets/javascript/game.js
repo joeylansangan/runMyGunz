@@ -2,6 +2,11 @@
 var pressStart = "START GAME"
 $("#startgame").append(pressStart);
 
+// create play again variable with onclick event
+var play = "Play Again"
+console.log(play); 
+$(document).on("click", "#playagain", showElements)
+
 // create in game menu button
 var clickMenu = "Main Menu"
 $(document).on("click", "#mainmenu", function(){
@@ -9,6 +14,16 @@ $(document).on("click", "#mainmenu", function(){
     $("#startgame").show();
     $(".instructions").show();
 })
+
+// create on click event that runs the whole game
+$(document).on("click", "#startgame", playgame)
+
+// hide elements when page loads
+hideElements();
+
+////
+////// GLOBAL FUNCTIONS
+////
 
 // hide/show elements function
 function hideElements(){
@@ -20,34 +35,57 @@ function showElements(){
     $(".copstats").show();
     $(".gunzback").show();
     $(".mercs").show();
+    $(".gunrow").show(); 
+    displayPatrol();
+    displayMercs();
+   
+}
+
+function displayPatrol(){
+    var patrolImage = $("<img>")
+    patrolImage.addClass("copphoto");  
+    patrolImage.attr("src", `./assets/images/coppatrol.gif`);  
+    $(`.copphoto`).html(patrolImage);
+}
+
+function displayMercs(){
+    var mercImage = $("<img>")
+    mercImage.addClass("copphoto");  
+    mercImage.attr("src", `./assets/images/mercs.gif`);  
+    $(`.mercs`).html(mercImage);
+}
+
+function displayBust(){
+    var bustedImage = $("<img>")
+    bustedImage.addClass("copphoto");  
+    bustedImage.attr("src", `./assets/images/copcar.gif`);  
+    $(`.copphoto`).html(bustedImage); 
+}
+function bustMercs(){
+    var bustMercs = $("<img>")
+    bustMercs.addClass("mercphoto");  
+    bustMercs.attr("src", `./assets/images/busted.png`);  
+    $(`.mercs`).html(bustMercs);    
 }
 
 
-// hide elements when page loads
-hideElements();
 
-// create on click event that runs the whole game(rest of code)
-$(document).on("click", "#startgame", function(){
+function playgame(){
     $("#mainmenu").html(clickMenu);
     $(".instructions").hide();
-    $("#startgame").hide();
-    $(".gunrow").show(); 
+    $("#startgame").hide();   
     showElements(); 
-    gameStart();
-    function displayPatrol(){
-        var patrolImage = $("<img>")
-        patrolImage.addClass("copphoto");  
-        patrolImage.attr("src", `./assets/images/coppatrol.gif`);  
-        $(`.copphoto`).html(patrolImage);
-    }
+    gameStart();  
     displayPatrol();    
-})
+}
+
 
 // create gameStart function
 function gameStart(){
 
-    // Set target number randomly from 19 - 120
+// Set target number randomly from 19 - 120
 var targetNumber = Math.floor(Math.random() * (120 - 19 + 1)) + 19;
+
 // set initial user score to 0
 var profit = 0;
 
@@ -62,9 +100,6 @@ var win = 0
 $("#wins").html(win);
 var loss = 0
 $("#loss").html(loss); 
-
-// background music
-// './assets/audio/suspensepixel.wav'
 
 // // set value to each item
 var randomPrice = Math.floor(Math.random() * (12 - 1 + 1)) + 1;
@@ -128,6 +163,8 @@ displayGuns();
 // set on click event for each item
 // dynamic button clicking syntax is used here
 $(document).on("click", ".item-image", function(){
+    console.log(profit);
+    console.log(targetNumber);
     // sound effect
     $('audio#money')[0].play();
     // create variable that has a value of the item price which is under the data-itemvalue attribute
@@ -144,30 +181,33 @@ $(document).on("click", ".item-image", function(){
     $("#profit").text(profit);
 
     // if statement for win/lose
-    if (profit === targetNumber){
-        alert("You Win!");
+    if (profit === targetNumber){  
+        $(".gunrow").hide();
         win++;
         $("#wins").html(win);
         resetStats();
+        $('audio#chant')[0].play();
+        $("#playagain").html(play);
     }
+
     else if (profit >= targetNumber){
-        alert("You Lose!"); 
+        $(".gunrow").hide();
+        displayBust();
+        bustMercs();
         loss++;
         $("#loss").html(loss);
         resetStats();
-        function displayBust(){
-            var bustedImage = $("<img>")
-            bustedImage.addClass("copphoto");  
-            bustedImage.attr("src", `./assets/images/copcar.gif`);  
-            $(`.copphoto`).html(bustedImage);
-        }
-        displayBust();
-        $(".gunrow").hide();
+        $('audio#siren')[0].play();
+        $("#playagain").html(play);
+        
+        
     }
   
 })
 
 }
+
+
 
 
 
