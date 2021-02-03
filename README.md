@@ -1,2 +1,2 @@
 # tycoon game
-run guns
+Javascript Based tycoon game
